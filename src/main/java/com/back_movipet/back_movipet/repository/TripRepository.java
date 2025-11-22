@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface TripRepository extends MongoRepository<Trip, String> {
 
-    List<Trip> findByUserIdOrderByTimestampDesc(String userId);
+    //List<Trip> findByUserIdOrderByTimestampDesc(String userId);
 }

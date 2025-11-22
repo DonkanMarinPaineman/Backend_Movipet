@@ -15,10 +15,9 @@ public class TripService {
         this.tripRepository = tripRepository;
     }
 
-    public List<Trip> getTrips(String userId) {
-        if (userId != null) {
-            return tripRepository.findByUserIdOrderByTimestampDesc(userId);
-        }
+    // Si antes recibías userId, ahora simplificamos:
+    public List<Trip> getAll() {
+        // o tripRepository.findAll() si no quieres ordenar
         return tripRepository.findAll();
     }
 

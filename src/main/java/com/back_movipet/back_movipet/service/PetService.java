@@ -15,10 +15,7 @@ public class PetService {
         this.petRepository = petRepository;
     }
 
-    public List<Pet> getAll(String ownerId) {
-        if (ownerId != null) {
-            return petRepository.findByOwnerId(ownerId);
-        }
+    public List<Pet> getAll() {
         return petRepository.findAll();
     }
 

@@ -19,8 +19,8 @@ public class TripController {
     }
 
     @GetMapping
-    public List<Trip> getTrips(@RequestParam(required = false) String userId) {
-        return tripService.getTrips(userId);
+    public List<Trip> getAll() {
+        return tripService.getAll();
     }
 
     @PostMapping

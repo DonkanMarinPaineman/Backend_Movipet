@@ -19,12 +19,15 @@ public class PetController {
     }
 
     @GetMapping
-    public List<Pet> getAll(@RequestParam(required = false) String ownerId) {
-        return petService.getAll(ownerId);
+    public List<Pet> getAll() {
+        return petService.getAll();   // sin ownerId
     }
 
     @PostMapping
     public Pet create(@Valid @RequestBody Pet pet) {
+        if (pet.getCreatedAt() == null) {
+            pet.setCreatedAt(System.currentTimeMillis());
+        }
         return petService.create(pet);
     }
 }

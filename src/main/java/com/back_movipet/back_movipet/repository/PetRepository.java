@@ -8,5 +8,5 @@ import java.util.List;
 public interface PetRepository extends MongoRepository<Pet, String> {
 
     // Listar mascotas por dueño
-    List<Pet> findByOwnerId(String ownerId);
+    // List<Pet> findByOwnerId(String ownerId);
 }
