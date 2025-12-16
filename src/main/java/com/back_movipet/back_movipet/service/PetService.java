@@ -22,4 +22,12 @@ public class PetService {
     public Pet create(Pet pet) {
         return petRepository.save(pet);
     }
+
+    public boolean deleteById(String id) {
+        if (!petRepository.existsById(id)) {
+            return false;
+        }
+        petRepository.deleteById(id);
+        return true;
+    }
 }

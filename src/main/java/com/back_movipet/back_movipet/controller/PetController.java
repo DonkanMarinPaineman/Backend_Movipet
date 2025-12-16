@@ -3,6 +3,7 @@ package com.back_movipet.back_movipet.controller;
 import com.back_movipet.back_movipet.model.Pet;
 import com.back_movipet.back_movipet.service.PetService;
 import jakarta.validation.Valid;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,5 +30,14 @@ public class PetController {
             pet.setCreatedAt(System.currentTimeMillis());
         }
         return petService.create(pet);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable String id) {
+        boolean deleted = petService.deleteById(id);
+        if (!deleted) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok().build();
     }
 }
